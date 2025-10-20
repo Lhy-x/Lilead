@@ -17,9 +17,20 @@ Plateforme SaaS de gestion de formulaires de préqualification de leads avec vé
 ```bash
 npm install
 cp .env.example .env
+# Renseignez RESEND_API_KEY, RESEND_FROM et vos identifiants base/IA
 ./scripts/init-db.sh
 npm run dev
 ```
+
+### Variables d'environnement clés
+
+| Variable | Description |
+| --- | --- |
+| `DATABASE_URL` | Chaîne de connexion PostgreSQL (utilisée par Prisma). |
+| `RESEND_API_KEY` / `RESEND_FROM` | Clés Resend nécessaires pour envoyer les emails de vérification et relances. |
+| `GEMINI_API_KEY` / `GEMINI_MODEL` | Paramètres d'accès à Gemini (facultatifs mais recommandés). |
+| `NEXT_PUBLIC_API_URL` | URL de l'API consommée par le frontend. |
+| `NEXT_PUBLIC_PUBLIC_URL` | URL publique utilisée dans les emails et liens partagés. |
 
 Consultez la documentation détaillée dans `docs/` :
 - [ARCHITECTURE](docs/ARCHITECTURE.md)

@@ -37,7 +37,7 @@ Variables clés à définir :
 | `CLIENT_URL` | URL publique du frontend (ex. `http://localhost:3000`). |
 | `JWT_SECRET` | Secret de signature JWT. |
 | `RESEND_API_KEY` | Clé API Resend pour l'envoi des emails. |
-| `RESEND_FROM` | Adresse expéditrice validée chez Resend. |
+| `RESEND_FROM` | Adresse expéditrice validée chez Resend (domain ou adresse vérifiée). |
 | `GEMINI_API_KEY` | Clé API Google AI Studio pour Gemini (optionnel). |
 | `GEMINI_MODEL` | Nom du modèle Gemini à utiliser (`gemini-1.5-flash` par défaut). |
 | `VERIFICATION_EXPIRY_MINUTES` | Durée de validité des codes de vérification. |
