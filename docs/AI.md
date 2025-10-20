@@ -5,7 +5,7 @@
 Lilead propose un moteur de qualification hybride :
 
 1. **Règles pondérées** définies par l'utilisateur (`LeadRule`). Chaque règle cible un champ (question ou donnée dérivée), applique un opérateur (contains, equals, starts_with, ends_with) et contribue à un score global.
-2. **Endpoint IA externe** optionnel. Si `AI_API_KEY` et `AI_API_URL` sont définis, Lilead envoie les réponses brutes à ce service. Le service doit répondre au format :
+2. **Gemini** (optionnel). Si `GEMINI_API_KEY` est défini, Lilead envoie un prompt structuré au modèle (`GEMINI_MODEL` par défaut `gemini-1.5-flash`) et attend une réponse JSON au format :
 
 ```json
 {
@@ -30,7 +30,7 @@ Les champs pris en compte correspondent aux labels de questions. Exemple : pour 
 ## Extension
 
 - Ajouter des opérateurs dans `apps/server/src/utils/ai.ts`.
-- Brancher un LLM interne en remplissant `AI_API_URL`.
+- Remplacer Gemini par un autre fournisseur en adaptant `apps/server/src/utils/ai.ts`.
 - Les règles peuvent être combinées avec des données tierces (ex : enrichissement via Clearbit) en modifiant le service d'évaluation.
 
 ## Logs & monitoring

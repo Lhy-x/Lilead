@@ -7,8 +7,8 @@ Lilead est une plateforme SaaS de gestion de formulaires de préqualification de
 - **Frontend** : Next.js 14 (app router) et TailwindCSS, situé dans `apps/web`. L'application inclut le dashboard administrateur, l'éditeur de formulaires, l'analyse en temps réel et la page publique des formulaires (`/f/[slug]`).
 - **Backend** : API REST Express + Prisma dans `apps/server`. Elle expose des routes sécurisées (JWT) pour gérer l'authentification, les formulaires, les questions, les règles IA, les statistiques et la soumission publique.
 - **Base de données** : PostgreSQL orchestré via Prisma (`prisma/schema.prisma`). Les entités principales sont `User`, `Form`, `Question`, `Submission`, `Answer`, `EmailVerification`, `Visit`, `LeadRule` et `EmailLog`.
-- **Emailing** : Intégration SendGrid via `@sendgrid/mail` pour les mails de vérification et les relances.
-- **IA de tri** : Module hybride (`apps/server/src/utils/ai.ts`) qui combine des règles pondérées côté utilisateur (`LeadRule`) et, optionnellement, un endpoint IA externe.
+- **Emailing** : Intégration Resend via SDK officiel pour les mails de vérification et les relances.
+- **IA de tri** : Module hybride (`apps/server/src/utils/ai.ts`) qui combine des règles pondérées côté utilisateur (`LeadRule`) et, optionnellement, une qualification avancée via Gemini.
 
 ## Flux principaux
 

@@ -5,8 +5,7 @@ Plateforme SaaS de gestion de formulaires de préqualification de leads avec vé
 ## Fonctionnalités principales
 
 - Création de formulaires dynamiques (jusqu'à 30 questions, 5 types de champs, mode test).
-- Vérification email obligatoire (code unique via SendGrid) avant soumission.
-- IA hybride : règles pondérées + intégration optionnelle d'un endpoint externe.
+
 - Dashboard administrateur : gestion des formulaires, analyse en temps réel, relances email.
 - Page publique responsive avec page de succès personnalisable (texte + vidéo Loom/VidAI).
 - Anti-spam : rate limiting, honeypot, tracking visites.
@@ -17,9 +16,11 @@ Plateforme SaaS de gestion de formulaires de préqualification de leads avec vé
 ```bash
 npm install
 cp .env.example .env
+
 ./scripts/init-db.sh
 npm run dev
 ```
+
 
 Consultez la documentation détaillée dans `docs/` :
 - [ARCHITECTURE](docs/ARCHITECTURE.md)

@@ -20,7 +20,7 @@
 
 ## Vérification email & anti-spam
 
-- Chaque soumission doit vérifier son email via un code envoyé par SendGrid.
+- Chaque soumission doit vérifier son email via un code envoyé par Resend.
 - Un champ honeypot invisible et un rate-limiting côté API bloquent les bots.
 - Les soumissions sans email vérifié ou expiré sont refusées.
 
@@ -28,7 +28,7 @@
 
 1. Ajoutez des règles IA dans l'onglet **Règles IA** : champ ciblé, opérateur (contains, equals, etc.), valeur attendue et poids.
 2. Le score résultant permet de classer automatiquement les leads en `QUALIFIED` ou `DISQUALIFIED`.
-3. Configurez `AI_API_KEY` + `AI_API_URL` pour déléguer la décision à un endpoint IA externe (sinon fallback sur les règles locales).
+3. Fournissez `GEMINI_API_KEY` (et facultativement `GEMINI_MODEL`) pour activer la qualification par Gemini ; sans cela, le système utilise uniquement les règles locales.
 
 ## Statistiques
 
@@ -38,7 +38,7 @@
 
 ## Relances email
 
-- Sur la page d'un formulaire, utilisez **Email leads qualifiés** pour envoyer un message groupé (via SendGrid) à l'adresse du propriétaire avec le lien direct du dashboard.
+- Sur la page d'un formulaire, utilisez **Email leads qualifiés** pour envoyer un message groupé (via Resend) à l'adresse du propriétaire avec le lien direct du dashboard.
 
 ## Formulaire public
 
