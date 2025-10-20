@@ -1,11 +1,9 @@
-import sgMail from '@sendgrid/mail';
+import { Resend } from 'resend';
 
 import { env } from '../config/env';
 import { prisma } from '../config/prisma';
 
-if (env.sendgridKey) {
-  sgMail.setApiKey(env.sendgridKey);
-}
+const resend = env.resendKey ? new Resend(env.resendKey) : null;
 
 type EmailTemplate = 'verification' | 'qualified-leads' | 'reminder';
 
@@ -24,8 +22,8 @@ export const sendEmail = async (
   data: Record<string, string>,
   metadata?: { formId?: string; submissionId?: string }
 ) => {
-  if (!env.sendgridKey) {
-    console.warn('Sendgrid key missing, email not sent.');
+  if (!resend) {
+    console.warn('Resend API key missing, email not sent.');
     return;
   }
 
@@ -33,9 +31,9 @@ export const sendEmail = async (
   const text = templates[template](data);
 
   try {
-    await sgMail.send({
+    await resend.emails.send({
+      from: env.resendFrom,
       to,
-      from: env.sendgridFrom,
       subject,
       text,
       html

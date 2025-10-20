@@ -4,8 +4,8 @@
 
 - Node.js 18+ (recommandé 20)
 - PostgreSQL 14+
-- Compte SendGrid (ou adapter `utils/email.ts`)
-- (Optionnel) Endpoint IA externe compatible JSON
+- Compte Resend (ou adapter `utils/email.ts`)
+- (Optionnel) Clé API Gemini pour la qualification avancée
 
 ## Étapes rapides (développement)
 
@@ -25,8 +25,24 @@ npm install
 
 ```bash
 cp .env.example .env
-# Éditer .env pour définir DATABASE_URL, SENDGRID_API_KEY, etc.
+# Éditer .env pour définir DATABASE_URL, RESEND_API_KEY, GEMINI_API_KEY, etc.
 ```
+
+Variables clés à définir :
+
+| Variable | Description |
+| --- | --- |
+| `DATABASE_URL` | Chaîne de connexion PostgreSQL. |
+| `PORT` | Port HTTP de l'API (par défaut `4000`). |
+| `CLIENT_URL` | URL publique du frontend (ex. `http://localhost:3000`). |
+| `JWT_SECRET` | Secret de signature JWT. |
+| `RESEND_API_KEY` | Clé API Resend pour l'envoi des emails. |
+| `RESEND_FROM` | Adresse expéditrice validée chez Resend (domain ou adresse vérifiée). |
+| `GEMINI_API_KEY` | Clé API Google AI Studio pour Gemini (optionnel). |
+| `GEMINI_MODEL` | Nom du modèle Gemini à utiliser (`gemini-1.5-flash` par défaut). |
+| `VERIFICATION_EXPIRY_MINUTES` | Durée de validité des codes de vérification. |
+| `NEXT_PUBLIC_API_URL` | URL de base de l'API pour le frontend. |
+| `NEXT_PUBLIC_PUBLIC_URL` | URL publique utilisée dans les liens envoyés. |
 
 4. **Initialiser la base de données**
 
