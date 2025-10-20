@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.1), transparent 50%),
+    #0f172a;
+  color: #0f172a;
+}
+
+.dark body {
+  background: #020617;
+  color: #f8fafc;
+}
+
+a {
+  color: inherit;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
